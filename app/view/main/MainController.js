@@ -7,13 +7,47 @@ Ext.define('CordovaExtJSTest.view.main.MainController', {
 
     alias: 'controller.main',
 
-    onItemSelected: function (sender, record) {
-        Ext.Msg.confirm('Confirm', 'Are you sure?', 'onConfirm', this);
+    touchendAt: null,
+    tabtapAt: null,
+
+    onTabTap: function() {
+        var dt = new Date(),
+            ms = Ext.Date.format(dt, 'time'),
+            diff = ms - this.touchendAt;
+        Ext.log('CordovaExtJSTest.view.main.MainController tab tap ' + diff + ' ms after touchend');
+        this.tabtapAt = ms;
     },
 
-    onConfirm: function (choice) {
-        if (choice === 'yes') {
-            //
-        }
+    onPainted: function() {
+        Ext.log('CordovaExtJSTest.view.main.MainController onPainted');
+
+        var me = this;
+
+        Ext.each(document.querySelectorAll( "button" ), function(btn) {
+
+            btn.addEventListener( "touchend", function() {
+                Ext.log('CordovaExtJSTest.view.main.MainController button touchend');
+                var dt = new Date();
+                me.touchendAt = Ext.Date.format(dt, 'time');
+            });
+        });
+    },
+
+    onActiveItemChange: function() {
+
+        var me = this,
+            dt = new Date(),
+            ms = Ext.Date.format(dt, 'time'),
+            diffTap = me.tabtapAt - me.touchendAt,
+            diffItem = ms - this.tabtapAt;
+
+        Ext.log('CordovaExtJSTest.view.main.MainController active item changed '+diffItem+' ms after tab tap');
+
+        var info = 'touchend at ' + me.touchendAt + '<br/>';
+        info+= 'tap at ' + me.tabtapAt + ' ('+diffTap+' ms)' + '<br/>';
+        info+= 'item changed at ' + ms + ' ('+diffItem+' ms)';
+
+        Ext.toast(info, 5000);
+
     }
 });

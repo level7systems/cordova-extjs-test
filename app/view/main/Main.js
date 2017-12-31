@@ -8,49 +8,50 @@ Ext.define('CordovaExtJSTest.view.main.Main', {
     xtype: 'app-main',
 
     requires: [
-        'Ext.MessageBox',
+        'Ext.Toast',
         'Ext.layout.Fit'
     ],
 
     controller: 'main',
     viewModel: 'main',
 
+    layout: {
+        animation: false
+    },
+
     defaults: {
         tab: {
-            iconAlign: 'top'
+            iconAlign: 'top',
+            listeners: {
+                'tap': 'onTabTap'
+            }
         }
     },
 
     tabBarPosition: 'bottom',
 
+    listeners: {
+        painted: 'onPainted',
+        activeItemchange: 'onActiveItemChange'
+    },
+
     items: [
-        // TODO - Replace the content of this view to suit the needs of your application.
         {
             title: 'Home',
             iconCls: 'x-fa fa-home',
-            layout: 'fit',
-            // The following grid shares a store with the classic version's grid as well!
-            items: [{
-                xtype: 'mainlist'
-            }]
+            html: 'Tab One'
         },{
             title: 'Users',
             iconCls: 'x-fa fa-user',
-            bind: {
-                html: '{loremIpsum}'
-            }
+            html: 'Tab Two'
         },{
             title: 'Groups',
             iconCls: 'x-fa fa-users',
-            bind: {
-                html: '{loremIpsum}'
-            }
+            html: 'Tab Three'
         },{
             title: 'Settings',
             iconCls: 'x-fa fa-cog',
-            bind: {
-                html: '{loremIpsum}'
-            }
+            html: 'Tab Four'
         }
     ]
 });
