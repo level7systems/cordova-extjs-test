@@ -1,4 +1,21 @@
 {
+    "builds": {
+        "web": {"default": true},
+        "ios": {
+            "packager": "cordova",
+            "cordova" : {
+                "config": {
+                    // Uncomment the line below and add the platforms you wish to build for
+                    "platforms": "ios",
+
+                    "id": "systems.level7.CordovaExtJSTest",
+                    "name": "CordovaExtJSTest"
+                }
+            }
+        }
+    },
+
+                
     "name": "CordovaExtJSTest",
     "namespace": "CordovaExtJSTest",
     "version": "1.0.0.0",
