@@ -1,0 +1,36 @@
+npm-debug.log
+._.DS_Store
+.DS_Store
+/sencha-watch.log
+/.architect
+/classic.json
+/classic.jsonp
+/modern.json
+/bootstrap.js
+/bootstrap.css
+/bootstrap.json
+/bootstrap.jsonp
+/build
+nbproject/
+/ext
+/.sass-cache/
+/sass/example/bootstrap.js
+/sass/example/example.css
+/sass/example/bootstrap.jsonp
+/sass/example/bootstrap.css
+/sass/example/bootstrap.json
+
+# iOS
+cordova/platforms/ios/build/
+cordova/platforms/ios/www/
+cordova/platforms/ios/VoIPstudio.xcarchive/
+cordova/platforms/ios/CordovaLib/CordovaLib.xcodeproj/xcuserdata/
+cordova/platforms/ios/VoIPstudio.xcodeproj/
+
+# android
+cordova/platforms/android/build/
+cordova/platforms/android/CordovaLib/build/
+cordova/platforms/android/.gradle/3.3/taskArtifacts/
+cordova/platforms/android/.gradle/3.3/tasks/
+cordova/platforms/android/assets/www/
+cordova/www/
