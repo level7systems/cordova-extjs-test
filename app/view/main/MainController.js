@@ -10,6 +10,20 @@ Ext.define('CordovaExtJSTest.view.main.MainController', {
     touchendAt: null,
     tabtapAt: null,
 
+    onButtonTap: function() {
+        var me = this,
+            dt = new Date(),
+            ms = Ext.Date.format(dt, 'time'),
+            diffItem = ms - me.touchendAt;
+
+        Ext.log('CordovaExtJSTest.view.main.MainController onButtonTap '+diffItem+' ms after tap event');
+
+        var info = 'touchend at ' + me.touchendAt + '<br/>';
+        info+= 'button tap at ' + ms + ' ('+diffItem+' ms)';
+
+        Ext.toast(info, 5000);
+    },
+
     onTabTap: function() {
         var dt = new Date(),
             ms = Ext.Date.format(dt, 'time'),

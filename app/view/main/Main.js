@@ -39,7 +39,16 @@ Ext.define('CordovaExtJSTest.view.main.Main', {
         {
             title: 'Home',
             iconCls: 'x-fa fa-home',
-            html: 'Tab One'
+            items: [{
+                html: 'Tab One'
+            },{
+                xtype: 'button',
+                text: 'Tap Me',
+                listeners: {
+                    tap: 'onButtonTap'
+                }
+            }
+            ]
         },{
             title: 'Users',
             iconCls: 'x-fa fa-user',
